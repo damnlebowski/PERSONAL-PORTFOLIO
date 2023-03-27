@@ -43,11 +43,11 @@
         <img src="user.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">RAHUL U</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="http://www.linkedin.com/in/rahul-u-2k" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://www.facebook.com/rahul.u.334" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/r_a_hu.l_/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://github.com/damnlebowski" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://twitter.com/Rahul5122000?t=ZSZ3rJlqcfwdFHXUSfTOjQ&s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="http://www.linkedin.com/in/rahul-u-2k" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://www.facebook.com/rahul.u.334" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/r_a_hu.l_/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://github.com/damnlebowski" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+          <a href="https://twitter.com/Rahul5122000?t=ZSZ3rJlqcfwdFHXUSfTOjQ&s=09" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
         </div>
       </div>
 
@@ -521,34 +521,39 @@
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <input type="text" name="name" class="form-control" id="name" onblur="namevalid()" >
+                  <span style="color: red;" id="name_error_msg"></span>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+                  <input type="email" class="form-control" name="email" id="email" onblur="emailvalid()" >
+                  <span style="color: red;" id="email_error_msg"></span>
                 </div>
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" onblur="subjectvalid()">
+                <span style="color: red;" id="subject_error_msg"></span>
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <textarea class="form-control" name="message" rows="10" id="message" onblur="messagevalid()"></textarea>
+                <span style="color: red;" id="message_error_msg"></span>
               </div>
-              <div class="my-3">
-                <!-- <div class="loading">Loading</div> -->
+              <!-- <div class="my-3">
+                <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
-              </div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div> -->
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
           <script>
             $("#submit-form").submit((e)=>{
                 e.preventDefault()
+                if(namevalid() && emailvalid() && subjectvalid() && messagevalid()){
                 $.ajax({
-                    url:"https://script.google.com/macros/s/AKfycbxL6KfJM2vRNLveP419OI-j7xzd8YWSngXKtFVfWuUW7RYypJyuyAcjrPAFv1-swPCk/exec",
+                    url:"https://script.google.com/macros/s/AKfycbySJulYFXzJen9Cttsg1gy-MQrdB6U-dx8vuE28fKhsAMmehT4eaw85ognwuw4Ohb6M/exec",
                     data:$("#submit-form").serialize(),
                     method:"post",
                     success:function (response){
@@ -561,6 +566,7 @@
         
                     }
                 })
+              }
             })
         </script>
 
@@ -577,6 +583,8 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+   <!-- Name checking using js -->
+  <script src="form.js"></script>     
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -593,3 +601,7 @@
 </body>
 
 </html>
+
+
+
+<!-- gfxjhgkgkjgdjdfkhlrhsgih -->
